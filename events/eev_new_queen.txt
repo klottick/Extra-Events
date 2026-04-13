@@ -50,7 +50,7 @@ country_event = {
 		}
 		owner = {
 			add_resource = {
-				unity = 400
+				unity = 300
 			}
 		}
 	}
@@ -111,7 +111,7 @@ country_event = {
 				max = @tier2researchmax
 			}
 			add_resource = {
-				unity = 400
+				unity = 300
 			}
 		}
 	}

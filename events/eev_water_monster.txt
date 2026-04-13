@@ -41,8 +41,8 @@ ship_event = {
 			add_monthly_resource_mult = {
 				resource = unity
 				value = @tier2unityreward
-				min = @tier1unitymin
-				max = @tier3unitymax
+				min = @tier2unitymin
+				max = @tier2unitymax
 			}
 		}
 	}

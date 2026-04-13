@@ -217,7 +217,7 @@ ship_event = {
 	option = {
 		name = eev_mutiny.5.a
 		owner = {
-			add_resource = { energy = 500 }
+			add_resource = { energy = 350 }
 		}
 		hidden_effect = {
 			fleet = { set_event_locked = no }

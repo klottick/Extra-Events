@@ -28,7 +28,7 @@ ship_event = {
 				max = @tier2materialmax
 			}	
 			add_resource = {
-				unity = 250
+				unity = 200
 			}
 		}
 	}			
@@ -47,7 +47,7 @@ ship_event = {
 				max = @tier2materialmax
 			}
 			add_resource = {
-				unity = -250
+				unity = -200
 			}
 		}
 	}

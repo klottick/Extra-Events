@@ -56,7 +56,7 @@ ship_event = {
 		
 		owner = {
 			add_resource = {
-				unity = 500
+				unity = 350
 			}
 		}
 	}	
@@ -80,7 +80,7 @@ ship_event = {
 		}
 		owner = {
 			add_resource = {
-				unity = 1500
+				unity = 1000
 			}
 		}
 	}				

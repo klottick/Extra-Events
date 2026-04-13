@@ -18,12 +18,12 @@ ship_event = {
 			location = from
 			owner = root
 		}
-		owner = { add_resource = { unity = 1000 } }
+		owner = { add_resource = { unity = 700 } }
 	}
 	option = {
 		name = murder_event.1.b
 		owner = {
-			add_resource = { unity = -1000 }
+			add_resource = { unity = -700 }
 			weighted_random_owned_pop_group = { kill_single_pop = yes }
 		}
 	}
@@ -70,7 +70,7 @@ country_event = {
 	option = {
 		name = murder_event.3.a
 		owner = {
-			add_resource = { unity = -1000 }
+			add_resource = { unity = -700 }
 			weighted_random_owned_pop_group = { kill_single_pop = yes }
 		}
 	}
@@ -238,7 +238,7 @@ ship_event = {
 				max = @tier2researchmax
 			}
 			add_resource = {
-				unity = 1000
+				unity = 700
 			}
 			end_event_chain = "murder_chain"
 		}
@@ -308,7 +308,7 @@ country_event = {
 				max = @tier3researchmax
 			}
 			add_resource = {
-				unity = 800
+				unity = 550
 			}
 		}
 	}
@@ -336,7 +336,7 @@ country_event = {
 				max = @tier3researchmax
 			}
 			add_resource = {
-				unity = 800
+				unity = 550
 			}
 		}
 	}
