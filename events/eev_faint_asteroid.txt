@@ -34,7 +34,7 @@ planet_event = {
 			}
 		}
 		owner = {
-			add_resource = { energy = -2000 }
+			add_resource = { energy = -1400 }
 		}
 		add_planet_devastation = 20
 		while = {

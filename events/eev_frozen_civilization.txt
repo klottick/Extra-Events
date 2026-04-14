@@ -38,7 +38,7 @@ ship_event = {
 		
 		owner = {
 			add_resource = {
-				unity = 1000
+				unity = 700
 			}
 			add_monthly_resource_mult = {
 				resource = society_research

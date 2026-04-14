@@ -13,7 +13,7 @@ country_event = {
         exclusive_trigger = { is_xenophile = yes }
         name = AMAZING
         add_resource = {
-            society_research = 500
+            society_research = 300
         }
     }
     option = {
@@ -30,13 +30,13 @@ country_event = {
         }
         name = PECULIAR
         add_resource = {
-            society_research = 300
+            society_research = 180
         }
     }
     option = {
         name = NOTIME
         add_resource = {
-            unity = 300
+            unity = 225
         }
     }
 }

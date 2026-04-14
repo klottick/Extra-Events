@@ -32,7 +32,7 @@ ship_event = {
 		}
 		owner = {
 			add_resource = {
-				unity = 500
+				unity = 350
 			}
 		}
 	}

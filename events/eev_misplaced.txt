@@ -61,7 +61,7 @@ country_event = {
 	}
 	option = {
 		name = eev_misplaced.3.a
-		add_resource = { society_research = 200 }
+		add_resource = { society_research = 120 }
 	}
 }
 
@@ -98,7 +98,7 @@ country_event = {
 	
 	option = {
 		name = "eev_misplaced.5.a"
-		add_resource = { society_research = 500 }
+		add_resource = { society_research = 300 }
 	}
 	
 	option = {
