@@ -159,7 +159,7 @@ eev_rock_pets_trigger = {
         eev_is_valid_colony = yes
         colony_age >= 60
         NOR = {
-            has_planet_flag = colony_event
+            planet = { has_planet_flag = colony_event }
             has_deposit = d_alien_pets_deposit
         }
     }

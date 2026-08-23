@@ -10,9 +10,13 @@ country_event = {
 			limit = {
 				eev_is_valid_colony = yes
 				colony_age >= 60
-				NOT = { has_planet_flag = colony_event }
+				planet = {
+					NOT = { has_planet_flag = colony_event }
+				}
 			}
-			planet_event = { id = eev_rock_pets.2 }
+			planet = {
+				planet_event = { id = eev_rock_pets.2 }
+			}
 		}
 	}
 }
