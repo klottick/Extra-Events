@@ -480,6 +480,7 @@ country_event = {
 
 	trigger = {
 		is_ai = no
+		eev_is_settled_empire = yes
 		years_passed >= 10
 	}
 

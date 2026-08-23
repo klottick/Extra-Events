@@ -210,6 +210,11 @@ eev_check_valid_colony = {
 		eev_is_valid_colony = yes
 	}
 }
+eev_is_settled_empire = {
+	# Nomadic empires do not own standard colonies, so keep them out of
+	# the bi-yearly country event engine that assumes settled progression.
+	num_owned_planets > 0
+}
 eev_is_std_bio_empire = {
 	is_country_type = default
 	is_hive_empire = no
