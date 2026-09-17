@@ -199,6 +199,8 @@ eev_is_valid_habitat = {
 
 eev_is_valid_colony = {
 	AND = {
+		# Owned-colony iterators can also return ship-carried colonies.
+		carrier_is_type = planet
 		is_colony = yes
 		is_capital = no
 		is_artificial = no
@@ -211,9 +213,8 @@ eev_check_valid_colony = {
 	}
 }
 eev_is_settled_empire = {
-	# Nomadic empires do not own standard colonies, so keep them out of
-	# the bi-yearly country event engine that assumes settled progression.
-	num_owned_planets > 0
+	# Colony counts are not a reliable proxy for gameplay type.
+	is_nomadic = no
 }
 eev_is_std_bio_empire = {
 	is_country_type = default

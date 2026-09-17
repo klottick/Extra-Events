@@ -87,7 +87,11 @@ special_project = {
 	
 	on_cancel = {
 		event_target:eev_vortex_con = {
-			fleet = { destroy_fleet = this }
+			if = {
+				limit = { is_ship_class = shipclass_constructor }
+				fleet = { destroy_fleet = this }
+			}
+			else = { fleet = { set_event_locked = no } }
 		}
 		event_target:eev_vortex_sci = {
 			ship_event = { id = eev_houston.6 days = 50 }
@@ -96,7 +100,11 @@ special_project = {
 
 	on_fail = {
 		event_target:eev_vortex_con = {
-			fleet = { destroy_fleet = this }
+			if = {
+				limit = { is_ship_class = shipclass_constructor }
+				fleet = { destroy_fleet = this }
+			}
+			else = { fleet = { set_event_locked = no } }
 		}
 		event_target:eev_vortex_sci = {
 			ship_event = { id = eev_houston.6 days = 50 }

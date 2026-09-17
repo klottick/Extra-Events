@@ -45,6 +45,8 @@ ship_event = {
 	location = root
 	fire_only_once = yes
 	is_triggered_only = yes
+	# This chain locks and can destroy an expedition fleet, not a mobile colony.
+	trigger = { is_ship_class = shipclass_science_ship }
 
 	desc = {
 		text = eev_mutiny.1.desc.food
@@ -128,6 +130,7 @@ ship_event = {
 	}
 
 	immediate = {
+        fleet = { set_event_locked = no }
         kill_leader = { class = scientist show_notification = yes }
 	}
 
@@ -148,6 +151,7 @@ ship_event = {
 	picture = GFX_evt_ship_in_orbit
 	show_sound = event_faceoff_in_space
 	is_triggered_only = yes
+	trigger = { is_ship_class = shipclass_science_ship }
 
 	desc = {
 		text = eev_mutiny.4.desc.food
@@ -194,6 +198,7 @@ ship_event = {
 		name = eev_mutiny.5.a
 	}
 	after = {
+		fleet = { set_event_locked = no }
 		clear_global_event_target = eev_mutiny_ship
 	}
 }

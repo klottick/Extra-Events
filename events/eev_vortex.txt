@@ -10,6 +10,8 @@ ship_event = {
 	location = FROM
 
 	is_triggered_only = yes
+	# Rescue and ship-loss outcomes assume a conventional science ship.
+	trigger = { is_ship_class = shipclass_science_ship }
 
 	immediate = {
 		root = { save_event_target_as = eev_vortex_sci }
@@ -183,8 +185,12 @@ ship_event = {
 		name = eev_houston.6a
 		hidden_effect = {
 			event_target:eev_vortex_sci = {
-				kill_leader = { class = scientist show_notification = yes }
-				fleet = { destroy_fleet = this }
+				if = {
+					limit = { is_ship_class = shipclass_science_ship }
+					kill_leader = { class = scientist show_notification = yes }
+					fleet = { destroy_fleet = this }
+				}
+				else = { fleet = { set_event_locked = no } }
 			} 
 		}
 	}
