@@ -10,11 +10,16 @@ ship_event = {
 	location = FROM
 
 	is_triggered_only = yes
+	# Rescue and ship-loss outcomes assume a conventional science ship.
+	trigger = { is_ship_class = shipclass_science_ship }
 
 	immediate = {
 		root = { save_event_target_as = eev_vortex_sci }
 		from = { save_event_target_as = eev_vortex_pla }
-		fleet = { set_event_locked = yes }
+		fleet = {
+			save_event_target_as = eev_vortex_sci_fleet
+			set_event_locked = yes
+		}
 	}
 
 	option = {
@@ -57,7 +62,10 @@ ship_event = {
 	immediate = {
 		root = {
 			save_event_target_as = eev_vortex_con
-			fleet = { set_event_locked = yes }
+			fleet = {
+				save_event_target_as = eev_vortex_con_fleet
+				set_event_locked = yes
+			}
 		}
 	}
 
@@ -74,6 +82,8 @@ ship_event = {
 	option = {
 		name = eev_houston.2b
 		hidden_effect = {
+			# The constructor withdraws when further rescue is refused.
+			fleet = { set_event_locked = no }
 			ship_event = { id = eev_houston.6 days = 50 }
 		}
 	}
@@ -124,15 +134,16 @@ ship_event = {
 
 	immediate = {
 		root = { save_event_target_as = eev_vortex_mil }
-		fleet = { set_event_locked = yes }
+		fleet = {
+			save_event_target_as = eev_vortex_mil_fleet
+			set_event_locked = yes
+		}
 	}
 
 	option = {
 		name = eev_houston.4a
 		hidden_effect = {
-			event_target:eev_vortex_sci = {
-				ship_event = { id = eev_houston.7 days = 50 }
-			} 
+			owner = { country_event = { id = eev_houston.10 days = 50 } }
 		}
 	}
 }
@@ -151,16 +162,65 @@ ship_event = {
 	immediate = {
 		root = {
 			save_event_target_as = eev_vortex_mil
-			fleet = { set_event_locked = yes }
+			fleet = {
+				save_event_target_as = eev_vortex_mil_fleet
+				set_event_locked = yes
+			}
 		}
 	}
 
 	option = {
 		name = eev_houston.4a
 		hidden_effect = {
-			event_target:eev_vortex_sci = {
-				ship_event = { id = eev_houston.8 days = 50 }
-			} 
+			owner = { country_event = { id = eev_houston.11 days = 50 } }
+		}
+	}
+}
+
+# Resolve rescue on the country, independent of any participating ship surviving.
+# Local fleet targets also survive the loss of an individual ship in that fleet.
+country_event = {
+	id = eev_houston.10
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { exists = event_target:eev_vortex_sci_fleet }
+			event_target:eev_vortex_sci_fleet = { set_event_locked = no }
+		}
+		if = {
+			limit = { exists = event_target:eev_vortex_con_fleet }
+			event_target:eev_vortex_con_fleet = { set_event_locked = no }
+		}
+		if = {
+			limit = { exists = event_target:eev_vortex_mil_fleet }
+			event_target:eev_vortex_mil_fleet = { set_event_locked = no }
+		}
+		if = {
+			limit = { exists = event_target:eev_vortex_sci }
+			event_target:eev_vortex_sci = { ship_event = { id = eev_houston.7 } }
+		}
+	}
+}
+
+country_event = {
+	id = eev_houston.11
+	hide_window = yes
+	is_triggered_only = yes
+
+	immediate = {
+		if = {
+			limit = { exists = event_target:eev_vortex_sci_fleet }
+			event_target:eev_vortex_sci_fleet = { set_event_locked = no }
+		}
+		if = {
+			limit = { exists = event_target:eev_vortex_mil_fleet }
+			event_target:eev_vortex_mil_fleet = { set_event_locked = no }
+		}
+		if = {
+			limit = { exists = event_target:eev_vortex_sci }
+			event_target:eev_vortex_sci = { ship_event = { id = eev_houston.8 } }
 		}
 	}
 }
@@ -183,8 +243,12 @@ ship_event = {
 		name = eev_houston.6a
 		hidden_effect = {
 			event_target:eev_vortex_sci = {
-				kill_leader = { class = scientist show_notification = yes }
-				fleet = { destroy_fleet = this }
+				if = {
+					limit = { is_ship_class = shipclass_science_ship }
+					kill_leader = { class = scientist show_notification = yes }
+					fleet = { destroy_fleet = this }
+				}
+				else = { fleet = { set_event_locked = no } }
 			} 
 		}
 	}
@@ -206,11 +270,13 @@ ship_event = {
 			fleet = { set_event_locked = no }
 			ship_event = { id = eev_houston.9 days = 50 }
 		}
-		event_target:eev_vortex_con = {
-			fleet = { set_event_locked = no }
+		if = {
+			limit = { exists = event_target:eev_vortex_con }
+			event_target:eev_vortex_con = { fleet = { set_event_locked = no } }
 		}
-		event_target:eev_vortex_mil = {
-			fleet = { set_event_locked = no }
+		if = {
+			limit = { exists = event_target:eev_vortex_mil }
+			event_target:eev_vortex_mil = { fleet = { set_event_locked = no } }
 		}
 	}
 	option = {
@@ -288,8 +354,9 @@ ship_event = {
 			fleet = { set_event_locked = no }
 			ship_event = { id = eev_houston.9 days = 50 }
 		}
-		event_target:eev_vortex_mil = {
-			fleet = { set_event_locked = no }
+		if = {
+			limit = { exists = event_target:eev_vortex_mil }
+			event_target:eev_vortex_mil = { fleet = { set_event_locked = no } }
 		}
 	}
 
