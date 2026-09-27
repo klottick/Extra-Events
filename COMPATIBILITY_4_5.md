@@ -29,8 +29,8 @@ No reward values, reward tiers, pulse weights, or event timing were adjusted.
 
 The installed game is **4.5.1 (358e)**, confirmed in launcher-settings.json.
 Static source verification is complete for the points below; in-game event tests
-have not been performed. Keep the published descriptor at 4.4 until the runtime
-checks below are complete.
+have not been performed. The descriptor now targets 4.5; the runtime checks below
+remain outstanding and are not implied to have passed by the metadata update.
 
 Evidence in the released game files (paths relative to the installation):
 
@@ -97,8 +97,8 @@ the migrations described in the preliminary notes.
 - [ ] Exercise pre-FTL observation chains with delayed callbacks and ownership
       changes; inspect error.log for missing targets and scope errors.
 - [ ] Test with Nomads enabled and disabled, and test save/reload within 4.5.
-- [ ] Update descriptor.mod and the local external launcher descriptor to
-      `Extra Events 4.5 Continued` / `supported_version="v4.5.*"` after validation.
+- [x] Update descriptor.mod and the local external launcher descriptor to
+      `Extra Events 4.5 Continued` / `supported_version="v4.5.*"`.
 
 Use `-debug_mode` and `debugtooltip` for focused event tests. Search logs by
 script filename as well as event namespace; this mod has namespaces other than
