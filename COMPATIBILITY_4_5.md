@@ -15,6 +15,10 @@ Target: Cygnus. Release review against the installed **4.5.1 (358e)** scripts.
 - Guard the delayed Vortex ship-loss and constructor-loss effects by ship class.
 - Dispatch Vortex project success events in the completing ship's scope, so
   constructor/military event targets do not incorrectly refer to the science ship.
+- Release the constructor immediately when further rescue is refused.
+- Resolve delayed Vortex rescue cleanup through country events with local fleet
+  targets. Surviving fleets are released even if the stranded science ship or an
+  individual rescuer dies; success popups require the science ship to survive.
 - Restrict the delayed destructive Mutiny outcome to science ships.
 - Release surviving fleets at the Mutiny leader-death and rescue endings.
 - Retain the merged Rock Pets planet-scope fixes and placeholder-origin removal.
@@ -79,6 +83,12 @@ the migrations described in the preliminary notes.
       failure, cancellation, and delayed outcomes; check surviving fleet locks.
 - [ ] Verify rescue callbacks identify the participating ships correctly and
       do not strand fleets when a saved target disappears.
+- [ ] Refuse military assistance after the constructor arrives: it must unlock
+      immediately. In both military rescue branches, destroy the science ship
+      during the 50-day delay: surviving rescue fleets must still unlock.
+- [ ] Repeat with the military target ship destroyed but another ship surviving
+      in its fleet; also test a lost constructor, all ships surviving, and all
+      fleets destroyed. Missing targets must not cause scope errors.
 - [ ] Check the three NAME_Dagger ship rewards for valid designs and ownership.
 - [ ] Check energy/mineral grants and affordability checks against Nomadic
       Operational Reserves where those events are accessible.
