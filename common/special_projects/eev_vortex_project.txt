@@ -14,9 +14,8 @@ special_project = {
 	}
 	
 	on_success = {
-		event_target:eev_vortex_sci = {
-			ship_event = { id = eev_houston.2 }
-		}
+		# Ship scope is the constructor completing the rescue project.
+		ship_event = { id = eev_houston.2 }
 	}
 
 	on_cancel = {
@@ -47,9 +46,8 @@ special_project = {
 	}
 	
 	on_success = {
-		event_target:eev_vortex_sci = {
-			ship_event = { id = eev_houston.5 }
-		}
+		# Record the military rescuer, not the stranded science ship.
+		ship_event = { id = eev_houston.5 }
 	}
 	
 	on_cancel = {
@@ -80,9 +78,8 @@ special_project = {
 	}
 	
 	on_success = {
-		event_target:eev_vortex_sci = {
-			ship_event = { id = eev_houston.4 }
-		}
+		# Record the military rescuer, not the stranded science ship.
+		ship_event = { id = eev_houston.4 }
 	}
 	
 	on_cancel = {
